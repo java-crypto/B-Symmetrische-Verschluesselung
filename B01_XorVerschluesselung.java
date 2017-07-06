@@ -1,7 +1,5 @@
 package javaCrypto;
 
-import javax.xml.bind.DatatypeConverter;
-
 /*
 * Programm/Program B01_XorVerschluesselung.java
 * Kurzbeschreibung/Short description:
