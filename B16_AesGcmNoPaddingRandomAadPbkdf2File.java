@@ -7,7 +7,7 @@ package net.bplaced.javacrypto.symmetricencryption;
 * Copyright: This is free and unencumbered software released into the public domain.
 * Lizenttext/Licence: <http://unlicense.org>
 * getestet mit/tested with: Java Runtime Environment 8 Update 191 x64
-* Datum/Date (dd.mm.jjjj): 08.12.2018 
+* Datum/Date (dd.mm.jjjj): 13.01.2019 
 * Funktion: verschlüsselt einen Text im AES GCM Modus kein Padding
 *           die Ausgabe erfolgt in eine Datei
 *           zusätzlich werden ergänzende Daten (aad) genutzt
@@ -77,7 +77,7 @@ public class B16_AesGcmNoPaddingRandomAadPbkdf2File {
 		byte[] plaintextByte = null; // in diese variable werden später die zu verschlüsselnden daten eingelesen
 
 		// zuerst testen wir ob die einzulesende datei existiert
-		if (FileExistsCheck(dateinameReadStringReceived) == false) {
+		if (FileExistsCheck(dateinameReadString) == false) {
 			System.out.println("Die Datei " + dateinameReadString + " existiert nicht. Das Programm wird beendet.");
 			System.exit(0);
 		};
@@ -106,6 +106,7 @@ public class B16_AesGcmNoPaddingRandomAadPbkdf2File {
 		final byte[] gcmNonceByte = new byte[GCMNONCELENGTH];
 		SecureRandom secureRandomGcm = new SecureRandom();
 		secureRandomGcm.nextBytes(gcmNonceByte);
+		
 		// der verschluesselte (encrypted) text kommt in diese variable in form eines
 		// byte arrays
 		byte[] ciphertextByte = null; // die länge steht noch nicht fest, da sie von der größe des plaintextes abhängt
@@ -126,7 +127,7 @@ public class B16_AesGcmNoPaddingRandomAadPbkdf2File {
 		// byte[] passwordSaltByte
 		// integer größe des gcmNonceByte
 		// byte[] gcmNonceByte
-		// integer größe ciphertextByte
+		// integer größe des ciphertextByte
 		// byte[] ciphertextByte
 		try (DataOutputStream out = new DataOutputStream(new FileOutputStream(dateinameWriteString))) {
 			out.writeInt(aadtextByte.length);
@@ -188,7 +189,7 @@ public class B16_AesGcmNoPaddingRandomAadPbkdf2File {
 		// byte[] passwordSaltByte
 		// integer größe des gcmNonceByte
 		// byte[] gcmNonceByte
-		// integer größe ciphertextByte
+		// integer größe des ciphertextByte
 		// byte[] ciphertextByte
 		try (DataInputStream dataIn = new DataInputStream(new FileInputStream(dateinameReadStringReceived))) {
 			int aadtextByteReceivedLength = dataIn.readInt();
@@ -221,8 +222,7 @@ public class B16_AesGcmNoPaddingRandomAadPbkdf2File {
 		passwordHashByteDecrypt = skfDecrypt.generateSecret(specDec).getEncoded();
 
 		// nun wird der ciphertext wieder entschlüsselt
-		decryptedtextByte = AesGcmNoPaddingAadDecrypt(ciphertextByteReceived, aadtextByteReceived,
-				passwordHashByteDecrypt, gcmNonceByteReceived);
+		decryptedtextByte = AesGcmNoPaddingAadDecrypt(ciphertextByteReceived, aadtextByteReceived, passwordHashByteDecrypt, gcmNonceByteReceived);
 		Arrays.fill(passwordHashByteDecrypt, (byte) 0); // überschreibt das byte array mit nullen
 		Arrays.fill(passwordChar, (char) 0); // überschreibt das char array mit nullen
 		
