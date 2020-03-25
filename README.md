@@ -1,10 +1,10 @@
 # B-Symmetric Encryption / Symmetrische-Verschluesselung
 
 Webseite: http://javacrypto.bplaced.net
-Die Programme in diesem Bereich sind Beispiele für die symmetrische Verschlüsselung, hauptsächlich mittels AES.
-* Sicherheitshinweis * Einige Programme sind kryptographisch nicht sicher und sollten nicht für den Produktiveinsatz genutzt werden, sie werden hier nur zu Lern- und Lehrzwecken bereitgestellt. Die Programme mit "Java11" sind sowohl unter Java 8 als auch unter Java 11 lauffähig.
+Die Programme in diesem Bereich sind Beispiele für die symmetrische Verschluesselung, hauptsächlich mittels AES.
+* Sicherheitshinweis * Einige Programme sind kryptographisch nicht sicher und sollten nicht für den Produktiveinsatz genutzt werden, sie werden hier nur zu Lern- und Lehrzwecken bereitgestellt. Die Programme mit "Java11" sind sowohl unter Java 8 als auch unter Java 11 lauffaehig.
 
-Erklärungen zu allen Programmen findet Ihr unter: http://javacrypto.bplaced.net/b00-symmetrische-verschluesselung/
+Erklaerungen zu allen Programmen findet Ihr unter: http://javacrypto.bplaced.net/b00-symmetrische-verschluesselung/
 
 Website: http://javacrypto.bplaced.net
 The programs in this area show examples of symmetric encryption, mainly with use of AES.
